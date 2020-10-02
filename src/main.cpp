@@ -1,5 +1,5 @@
 /**************/
-/* CLIfe v1.1 */
+/* CLIfe v1.2 */
 /**************/
 
 //Creator: XP710
@@ -22,7 +22,7 @@ int main(int argn, char* args[])
 
     //Start the program with a splash screen
     cout << "\x1B[2J\x1B[H"; //Clears the screen
-    cout << "Weclome to CLIfe v1.1!" << endl
+    cout << "Weclome to CLIfe v1.2!" << endl
          << "Copyright 2020 by XP710 GPLv3.0" << endl << endl
          << "Controls:" << endl
          << "Movement: hjkl" << endl
