@@ -17,4 +17,10 @@ main.o: include/engine.h src/main.cpp
 	g++ -c -Iinclude src/main.cpp
 
 clean:
-	rm CLIfe cursor.o space.o lifeboard.o engine.o main.o
+	rm *.o include/*.h.gch
+
+install: 
+	mv CLIfe /usr/bin
+
+uninstall:
+	rm /usr/bin/CLIfe
