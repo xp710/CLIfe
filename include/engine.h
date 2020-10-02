@@ -9,7 +9,7 @@ class Engine
 {
 private:
     //The board
-    LifeBoard board = LifeBoard(20, 20);
+    LifeBoard* board;
     
     //The cursor
     Cursor cursor;
