@@ -1,5 +1,5 @@
 /**************/
-/* CLIfe v1.0 */
+/* CLIfe v1.1 */
 /**************/
 
 //Creator: XP710
@@ -7,10 +7,11 @@
 #include <iostream>
 #include <termios.h>
 #include <unistd.h>
+#include <string>
 #include "engine.h"
 using namespace std;
 
-int main()
+int main(int argn, char* args[])
 {
     //Disable ICanon and Echo
     struct termios t;
@@ -21,7 +22,7 @@ int main()
 
     //Start the program with a splash screen
     cout << "\x1B[2J\x1B[H"; //Clears the screen
-    cout << "Weclome to CLIfe v1.0!" << endl
+    cout << "Weclome to CLIfe v1.1!" << endl
          << "Copyright 2020 by XP710 GPLv3.0" << endl << endl
          << "Controls:" << endl
          << "Movement: hjkl" << endl
@@ -30,11 +31,18 @@ int main()
          << "Clear the board: c" << endl << endl
          << "Press any key to continue..." << endl;
     getchar(); //Wait for any key to be pressed
-    Engine game;
+    Engine* game;
+    if (argn == 3){
+        string stoix = args[1];
+        string stoiy = args[2];
+        game = new Engine(stoi(stoix), stoi(stoiy));
+    }else{
+        game = new Engine();
+    }
 
-    while (game.isRunning()){
-        game.dispBoard();
-        game.takeTurn();
+    while (game->isRunning()){
+        game->dispBoard();
+        game->takeTurn();
     }
 
     //Enables ICanon and Echo again
