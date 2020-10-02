@@ -70,6 +70,8 @@ void Engine::edit(){
         for (int y = 0; y < (int)board->sizeY(); y++){
             for (int x = 0; x < (int)board->sizeX(); x++){
                 board->setSpaceLife(x, y, false);
+                board->setSpaceToDie(x, y, false);
+                board->setSpaceToLive(x, y, false);
             }
         }
     }else if (input == 'q'){ //Quit
