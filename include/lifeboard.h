@@ -25,7 +25,6 @@ public:
     //Controlling spaces
     void setSpaceLife(int p_x, int p_y, bool p_life);
     void setSpaceToLive(int p_x, int p_y, bool p_toLive);
-    void setSpaceToDie(int p_x, int p_y, bool p_toDie);
 };
 
 
