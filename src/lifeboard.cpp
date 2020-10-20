@@ -107,7 +107,3 @@ void LifeBoard::setSpaceLife(int p_x, int p_y, bool p_life){
 void LifeBoard::setSpaceToLive(int p_x, int p_y, bool p_toLive){
     board[p_y][p_x].setToLive(p_toLive);
 }
-
-void LifeBoard::setSpaceToDie(int p_x, int p_y, bool p_toDie){
-    board[p_y][p_x].setToDie(p_toDie);
-}

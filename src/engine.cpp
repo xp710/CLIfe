@@ -12,7 +12,7 @@ void Engine::toCheck(){
             if (board->boardSpace(x, y).toLive()){
                 board->setSpaceLife(x, y, true);
                 board->setSpaceToLive(x, y, false);
-            }else if (board->boardSpace(x, y).toDie()){
+            }else{
                 board->setSpaceLife(x, y, false);
                 board->setSpaceToLive(x, y, false);
             }
@@ -29,14 +29,16 @@ void Engine::setTos(){
     for (int y = 0; y < board->sizeY(); y++){
         for (int x = 0; x < board->sizeX(); x++){
             if (board->boardSpace(x, y).isAlive()){
-                if (!board->spaceHasNeighbors(x, y, 2)){
-                    if (!board->spaceHasNeighbors(x, y, 3)){
-                        board->setSpaceToDie(x, y, true);
-                    }
+                if ((board->spaceHasNeighbors(x, y, 2)) || (board->spaceHasNeighbors(x, y, 3))){
+                    board->setSpaceToLive(x, y, true);
+                }else{
+                    board->setSpaceToLive(x, y, false);
                 }
             }else{
                 if (board->spaceHasNeighbors(x, y, 3)){
                     board->setSpaceToLive(x, y, true);
+                }else{
+                    board->setSpaceToLive(x, y, false);
                 }
             }
         }
@@ -70,7 +72,6 @@ void Engine::edit(){
         for (int y = 0; y < (int)board->sizeY(); y++){
             for (int x = 0; x < (int)board->sizeX(); x++){
                 board->setSpaceLife(x, y, false);
-                board->setSpaceToDie(x, y, false);
                 board->setSpaceToLive(x, y, false);
             }
         }

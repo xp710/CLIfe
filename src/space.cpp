@@ -9,13 +9,9 @@ bool Space::toLive(){
     return willLive;
 }
 
-bool Space::toDie(){
-    return willDie;
-}
-
 //Constructor
 Space::Space(bool p_alive)
-    :willLive(false), willDie(false){
+    :willLive(false){
     alive = p_alive;
 }
 
@@ -26,8 +22,4 @@ void Space::setLife(bool p_alive){
 
 void Space::setToLive(bool p_willLive){
     willLive = p_willLive;
-}
-
-void Space::setToDie(bool p_willDie){
-    willDie = p_willDie;
 }
